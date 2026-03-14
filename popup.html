@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>PAGE CHAOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --manga-paper: #fcfbf7;
+            --manga-ink: #000000;
+            --manga-red: #cc0000;
+            --manga-gray: #333333;
+        }
+
+        body {
+            width: 280px;
+            margin: 0;
+            padding: 30px 22px;
+            background-color: var(--manga-paper);
+            color: var(--manga-ink);
+            font-family: 'JetBrains Mono', monospace;
+            box-sizing: border-box;
+            position: relative;
+            overflow-x: hidden;
+            border: 2px solid var(--manga-ink);
+        }
+
+        /* SVG Speed Lines Background (Black Ink) */
+        .speed-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.06;
+        }
+
+        /* Registration Marks (Crop marks) */
+        .corner {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border: 2px solid var(--manga-ink);
+            z-index: 2;
+        }
+        .tl { top: 6px; left: 6px; border-right: 0; border-bottom: 0; }
+        .tr { top: 6px; right: 6px; border-left: 0; border-bottom: 0; }
+        .bl { bottom: 6px; left: 6px; border-right: 0; border-top: 0; }
+        .br { bottom: 6px; right: 6px; border-left: 0; border-top: 0; }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .skull-icon {
+            width: 44px;
+            height: 44px;
+            filter: drop-shadow(3px 3px 0px var(--manga-ink));
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 46px;
+            margin: 0;
+            line-height: 0.85;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+            color: var(--manga-ink);
+            transform: skew(-3deg);
+            position: relative;
+            display: inline-block;
+        }
+
+        .title-red-slash {
+            height: 2px;
+            background: var(--manga-red);
+            width: 80%;
+            margin: 2px auto 0;
+            opacity: 0.7;
+        }
+
+        .jagged-rule {
+            width: 100%;
+            height: 6px;
+            background: var(--manga-ink);
+            margin: 15px 0 10px;
+            clip-path: polygon(0% 20%, 5% 0%, 15% 10%, 25% 0%, 40% 15%, 55% 5%, 70% 20%, 85% 5%, 100% 15%, 100% 80%, 95% 100%, 80% 90%, 65% 100%, 50% 85%, 35% 95%, 20% 80%, 0% 100%);
+        }
+
+        .subtitle {
+            font-size: 11px;
+            font-weight: bold;
+            color: var(--manga-ink);
+            text-transform: lowercase;
+            letter-spacing: 0.5px;
+        }
+
+        .modes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .mode-btn {
+            all: unset;
+            display: flex;
+            align-items: center;
+            background: var(--manga-paper);
+            border: 2px solid var(--manga-ink);
+            clip-path: polygon(10px 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0% 100%, 0% 10px);
+            cursor: pointer;
+            transition: all 0.08s cubic-bezier(0.1, 0, 0, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+        }
+
+        /* Inversion on hover (Manga Flashback style) */
+        .mode-btn:hover {
+            background: var(--manga-ink);
+            color: var(--manga-paper) !important;
+            border-left: 5px solid var(--manga-red);
+            transform: translate(2px, -1px);
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+        }
+
+        .mode-btn:active::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--manga-red);
+            opacity: 0.9;
+        }
+
+        .emoji-badge {
+            width: 52px;
+            height: 52px;
+            background: var(--manga-ink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            flex-shrink: 0;
+            transition: background 0.08s;
+        }
+
+        .mode-btn:hover .emoji-badge {
+            background: var(--manga-paper);
+        }
+
+        .info {
+            padding: 0 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            line-height: 1;
+            color: inherit;
+        }
+
+        .desc {
+            font-size: 10px;
+            color: var(--manga-gray);
+            margin-top: 1px;
+            transition: color 0.08s;
+        }
+        
+        .mode-btn:hover .desc {
+            color: #ccc;
+        }
+
+        footer {
+            margin-top: 30px;
+            border-top: 2px solid var(--manga-ink);
+            padding-top: 12px;
+        }
+
+        .footer-text {
+            font-size: 11px;
+            color: var(--manga-ink);
+            font-weight: bold;
+        }
+
+        .version {
+            float: right;
+            color: var(--manga-red);
+            font-size: 9px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="corner tl"></div><div class="corner tr"></div>
+    <div class="corner bl"></div><div class="corner br"></div>
+
+    <!-- Background Speed Lines (Black) -->
+    <svg class="speed-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <g stroke="black" stroke-width="0.12">
+            <line x1="50" y1="50" x2="0" y2="0" /><line x1="50" y1="50" x2="20" y2="0" />
+            <line x1="50" y1="50" x2="40" y2="0" /><line x1="50" y1="50" x2="60" y2="0" />
+            <line x1="50" y1="50" x2="80" y2="0" /><line x1="50" y1="50" x2="100" y2="0" />
+            <line x1="50" y1="50" x2="100" y2="20" /><line x1="50" y1="50" x2="100" y2="40" />
+            <line x1="50" y1="50" x2="100" y2="60" /><line x1="50" y1="50" x2="100" y2="80" />
+            <line x1="50" y1="50" x2="100" y2="100" /><line x1="50" y1="50" x2="80" y2="100" />
+            <line x1="50" y1="50" x2="60" y2="100" /><line x1="50" y1="50" x2="40" y2="100" />
+            <line x1="50" y1="50" x2="20" y2="100" /><line x1="50" y1="50" x2="0" y2="100" />
+            <line x1="50" y1="50" x2="0" y2="80" /><line x1="50" y1="50" x2="0" y2="60" />
+            <line x1="50" y1="50" x2="0" y2="40" /><line x1="50" y1="50" x2="0" y2="20" />
+        </g>
+    </svg>
+
+    <div class="container">
+        <header>
+            <img src="icons/icon48.png" class="skull-icon" alt="chaos">
+            <div style="display: block;">
+                <h1>PAGE CHAOS</h1>
+                <div class="title-red-slash"></div>
+            </div>
+            <div class="jagged-rule"></div>
+            <div class="subtitle">choose your destruction</div>
+        </header>
+
+        <div class="modes-list">
+            <button class="mode-btn" data-mode="meteor">
+                <div class="emoji-badge">☄️</div>
+                <div class="info">
+                    <span class="name">METEOR STRIKE</span>
+                    <span class="desc">elements struck one by one</span>
+                </div>
+            </button>
+            <button class="mode-btn" data-mode="blackhole">
+                <div class="emoji-badge">🌀</div>
+                <div class="info">
+                    <span class="name">BLACK HOLE</span>
+                    <span class="desc">everything spirals into the void</span>
+                </div>
+            </button>
+            <button class="mode-btn" data-mode="explosion">
+                <div class="emoji-badge">💥</div>
+                <div class="info">
+                    <span class="name">EXPLOSION</span>
+                    <span class="desc">instant full-page detonation</span>
+                </div>
+            </button>
+            <button class="mode-btn" data-mode="wave">
+                <div class="emoji-badge">🌊</div>
+                <div class="info">
+                    <span class="name">WAVE</span>
+                    <span class="desc">force sweeps left to right</span>
+                </div>
+            </button>
+            <button class="mode-btn" data-mode="gravity">
+                <div class="emoji-badge">⬇️</div>
+                <div class="info">
+                    <span class="name">GRAVITY</span>
+                    <span class="desc">everything falls. simple.</span>
+                </div>
+            </button>
+        </div>
+
+        <footer>
+            <div class="footer-text">
+                reload page to restore
+                <span class="version">v1.0</span>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module" src="popup.js"></script>
+</body>
+</html>
