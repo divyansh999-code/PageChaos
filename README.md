@@ -1,58 +1,72 @@
 <div align="center">
-  <img src="icons/icon128.png" alt="Page Chaos Logo" width="128">
-  <h1>💀 PAGE CHAOS</h1>
-  <p><b>One click and the webpage you're on physically breaks apart.</b></p>
+  <img src="icons/icon128.png" alt="Page Chaos Logo" width="160">
   
-  ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-  ![Chrome](https://img.shields.io/badge/chrome%20extension-%234285F4.svg?style=for-the-badge&logo=googlechrome&logoColor=white)
-  ![Matter.js](https://img.shields.io/badge/Matter.js-Physics-purple?style=for-the-badge)
+  # ⚡ ＰＡＧＥ ＣＨＡＯＳ ⚡
+  ### ⸻ "One click, and the digital world shatters." ⸻
+  
+  [![JS](https://img.shields.io/badge/CORE-JAVASCRIPT-yellow?style=for-the-badge&logo=javascript&logoColor=black)](https://github.com/divyansh999-code)
+  [![V3](https://img.shields.io/badge/MANIFEST-V3-blue?style=for-the-badge&logo=google-chrome&logoColor=white)](https://github.com/divyansh999-code)
+  [![Engine](https://img.shields.io/badge/PHYSICS-MATTER.JS-8B5CF6?style=for-the-badge)](https://brm.io/matter-js/)
 </div>
 
 ---
 
-## 🌪️ What is Page Chaos?
-
-PageChaos is a Manifest V3 Chrome extension that transforms the static DOM into a chaotic, interactive Matter.js physics simulation. Featuring a clean, manga-inspired UI, it allows you to unleash five different forces of destruction on any webpage.
+## 📂 PROJECT OVERVIEW: [SYSTEM_BREAK]
+**PageChaos** is an experimental Manifest V3 extension that injects a high-performance physics engine into the active tab. It recursively flattens the DOM—including Shadow DOM layers—and re-renders every element as a dynamic rigid body.
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/b7d29710-495a-44ca-af42-356a6421aa66" width="800" autoplay loop muted playsinline></video>
+  <br>
+  <video src="https://github.com/user-attachments/assets/b7d29710-495a-44ca-af42-356a6421aa66" width="90%" style="border-radius: 10px; border: 3px solid #000; box-shadow: 10px 10px 0px #cc0000;" autoplay loop muted playsinline></video>
+  <p><i>Visual Log: System instability during "Black Hole" event.</i></p>
 </div>
 
-## ✨ Arsenal of Destruction
+---
 
-| Mode | Description |
-| :--- | :--- |
-| ☄️ **Meteor Strike** | Elements are struck one by one with heavy downward force, causing screen shake. |
-| 🌀 **Black Hole** | A dark void appears. Move your mouse to drag elements into the singularity. |
-| 💥 **Explosion** | An instant, full-page outward detonation from the center of your screen. |
-| 🌊 **Wave** | A cascading physical force sweeps across the DOM from left to right. |
-| ⬇️ **Gravity** | Pure, simple vertical gravity. Everything drops into the abyss. |
+## ⚔️ ARSENAL OF DESTRUCTION
 
-## 🚀 Installation
+| TYPE | IDENTITY | EFFECT PROTOCOL |
+| :--- | :--- | :--- |
+| ☄️ | **METEOR** | Sequential kinetic strikes with simulated screen-shake. |
+| 🌀 | **BLACK HOLE** | Interactive singularity that consumes elements based on mouse proximity. |
+| 💥 | **EXPLOSION** | Instantaneous outward radial force application. |
+| 🌊 | **WAVE** | Left-to-right cascading physics trigger. |
+| ⬇️ | **GRAVITY** | Vertical acceleration override; absolute DOM collapse. |
 
-This extension is currently loaded locally. Follow these steps to unleash the chaos:
+---
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/yourusername/pagechaos.git](https://github.com/yourusername/pagechaos.git)
-Open Google Chrome and navigate to chrome://extensions/.
+## 🛠️ INSTALLATION PROTOCOL
 
-Toggle Developer mode ON (top right corner).
+> [!IMPORTANT]
+> **This extension is in Developer Mode.** Follow the steps precisely to bypass security.
 
-Click Load unpacked and select the PageChaos directory.
+1.  **ACQUIRE THE SOURCE** Click **Code** > **Download ZIP** and extract the contents to your secure workspace.
+2.  **ACCESS CHROME CORE** Navigate to `chrome://extensions/` in your browser.
+3.  **OVERRIDE SECURITY** Toggle **Developer mode** (Top Right) to **ON**.
+4.  **INJECT FOLDER** Select **Load unpacked** and choose the `PageChaos` directory.
+5.  **EXECUTE** Pin the 💀 to your toolbar. Open any site. Choose your destruction.
 
-Pin the skull 💀 to your toolbar.
+---
 
-🛠️ Technical Architecture
-DOM Flattening: Recursively bypasses Shadow DOM to target rendering nodes while excluding complex internal wrappers (like video players).
+## ⚙️ TECHNICAL SPECIFICATIONS
+* **Engine:** Matter.js (v0.19.0) with custom collision filtering.
+* **DOM Isolation:** Intelligent filtering of video players and heavy wrappers to maintain 60FPS simulation.
+* **Runtime:** Dynamic script injection via `chrome.scripting` into the `MAIN` world context.
 
-Physics Engine: Matter.js (v0.19.0) handles rigid body translations and collision boundaries.
+---
 
-Injection: Utilizes Chrome's scripting API to dynamically insert the engine and simulation payload into the active tab's isolated world.
+## 👤 HEAD ARCHITECT
 
-👨‍💻 Author
-Divyansh Khandal
+<div align="left">
+  <img src="https://img.shields.io/badge/NAME-DIVYANSH%20KHANDAL-white?style=flat-square&logo=ghost" alt="Name">
+  <br>
+  <a href="https://github.com/divyansh999-code">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+  </a>
+  <a href="https://linkedin.com/in/divyansh-khandal-5b8b8b32b">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+  </a>
+</div>
 
-GitHub Profile
+<br>
 
-LinkedIn
+
