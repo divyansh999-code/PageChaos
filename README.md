@@ -17,7 +17,7 @@
 <div align="center">
   <br>
   <video src="https://github.com/user-attachments/assets/b7d29710-495a-44ca-af42-356a6421aa66" width="90%" style="border-radius: 10px; border: 3px solid #000; box-shadow: 10px 10px 0px #cc0000;" autoplay loop muted playsinline></video>
-  <p><i>Visual Log: System instability during "Black Hole" event.</i></p>
+  <p><i></i></p>
 </div>
 
 ---
