@@ -15,11 +15,9 @@
 PageChaos is a Manifest V3 Chrome extension that transforms the static DOM into a chaotic, interactive Matter.js physics simulation. Featuring a clean, manga-inspired UI, it allows you to unleash five different forces of destruction on any webpage.
 
 <div align="center">
-  <video width="800" autoplay loop muted playsinline>
-    <source src="YOUR_VIDEO_URL_HERE.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <video src="https://github.com/user-attachments/assets/b7d29710-495a-44ca-af42-356a6421aa66" width="800" autoplay loop muted playsinline></video>
 </div>
+
 ## ✨ Arsenal of Destruction
 
 | Mode | Description |
